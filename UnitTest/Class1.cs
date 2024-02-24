@@ -6,9 +6,9 @@ namespace UnitTest
     public class Class1
     {
         [Test]
-        public void method1()
+        public void MyMethod()
         {
-
+            Assert.Fail();
         }
 
     }
