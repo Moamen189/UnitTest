@@ -47,6 +47,10 @@ namespace UnitTest
             Warn.If(2 + 2 != 6);
             Warn.If(2 + 2 , Is.Not.EqualTo(6));
             Warn.If(() => 2 + 2 , Is.Not.EqualTo(6).After(2000));
+
+            Warn.Unless(2 + 2 == 6);
+            Warn.Unless(2 + 2, Is.Not.EqualTo(6));
+            Warn.Unless(() => 2 + 2, Is.Not.EqualTo(6).After(2000));
         }
     }
 }
