@@ -30,11 +30,18 @@ namespace UnitTest
     [TestFixture]
     public class BankAccountTests
     {
-        [Test]
-        public void BankAccountShouldIncreaseOnPositiveDeposit()
+        [SetUp]
+        public void SetUp()
         {
             //arrange 
             var Ba = new BankAccount(100);
+        }
+        [Test]
+        public void BankAccountShouldIncreaseOnPositiveDeposit()
+        {
+
+            //AAA
+
 
             //act 
 
