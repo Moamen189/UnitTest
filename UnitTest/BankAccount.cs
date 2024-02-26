@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace UnitTest
         }
         public void Depposit(int amount)
         {
+            if (amount <=0)
+            {
+                throw new ArgumentException("Deposite Must Be Possitve Number", nameof(amount));
+            }
             Balance += amount;
         }
         public void WithDraw(int amount)
@@ -58,7 +63,8 @@ namespace UnitTest
         public void BankAccountShouldThrownPositiveAmount()
         {
             var Bank = new BankAccount(100);
-            Assert.Throws<ArgumentException>(() => Bank.Depposit(-1));
+          var ex =  Assert.Throws<ArgumentException>(() => Bank.Depposit(-1));
+            StringAssert.StartsWith("Deposite Must Be Possitve Number", ex.Message);
         }
 
         public void MehodToTest()
