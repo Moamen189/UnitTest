@@ -53,6 +53,14 @@ namespace UnitTest
             Assert.That(Ba.Balance, Is.EqualTo(100));
         }
 
+        [Test]
+
+        public void BankAccountShouldThrownPositiveAmount()
+        {
+            var Bank = new BankAccount(100);
+            Assert.Throws<ArgumentException>(() => Bank.Depposit(-1));
+        }
+
         public void MehodToTest()
         {
             var Bank = new BankAccount(100);
