@@ -57,9 +57,13 @@ namespace UnitTest
         {
             var Bank = new BankAccount(100);
             Bank.WithDraw(100);
-            Assert.That(Bank.Balance, Is.EqualTo(10));
-            Assert.That(Bank.Balance, Is.EqualTo(60));
-            Assert.That(Bank.Balance, Is.EqualTo(1000));
+            Assert.Multiple(() =>
+            {
+                Assert.That(Bank.Balance, Is.EqualTo(10));
+                Assert.That(Bank.Balance, Is.EqualTo(60));
+                Assert.That(Bank.Balance, Is.EqualTo(1000));
+            });
+
 
         }
 
