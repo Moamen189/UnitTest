@@ -33,7 +33,7 @@ namespace UnitTest
         [Test]
         public void BankAccountShouldIncreaseOnPositiveDeposit()
         {
-
+            Assert.Fail("this Must Fail");
         }
     }
 }
