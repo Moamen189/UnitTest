@@ -17,7 +17,7 @@ namespace UnitTest
         }
         public void Depposit(int amount)
         {
-        
+            Balance += amount;
         }
         public void WithDraw(int amount)
         {
@@ -33,7 +33,16 @@ namespace UnitTest
         [Test]
         public void BankAccountShouldIncreaseOnPositiveDeposit()
         {
-            Assert.Fail("this Must Fail");
+            //arrange 
+            var Ba = new BankAccount(100);
+
+            //act 
+
+            Ba.Depposit(100);
+
+           //assert
+
+            Assert.That(Ba.Balance, Is.EqualTo(100));
         }
 
 
