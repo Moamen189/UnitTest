@@ -35,5 +35,16 @@ namespace UnitTest
         {
             Assert.Fail("this Must Fail");
         }
+
+
+    }
+    [TestFixture]
+    public class MyFixtures
+    {
+        [Test]
+        public void Warnings()
+        {
+            Warn.If(2 + 2 != 6);
+        }
     }
 }
