@@ -30,18 +30,19 @@ namespace UnitTest
     [TestFixture]
     public class BankAccountTests
     {
-        [SetUp]
+      // dynamic Ba = null;
+       [SetUp]
         public void SetUp()
         {
             //arrange 
-            var Ba = new BankAccount(100);
+           var BankAcc = new BankAccount(100);
         }
         [Test]
         public void BankAccountShouldIncreaseOnPositiveDeposit()
         {
 
             //AAA
-
+            var Ba = new BankAccount(100);
 
             //act 
 
@@ -52,6 +53,15 @@ namespace UnitTest
             Assert.That(Ba.Balance, Is.EqualTo(100));
         }
 
+        public void MehodToTest()
+        {
+            var Bank = new BankAccount(100);
+            Bank.WithDraw(100);
+            Assert.That(Bank.Balance, Is.EqualTo(10));
+            Assert.That(Bank.Balance, Is.EqualTo(60));
+            Assert.That(Bank.Balance, Is.EqualTo(1000));
+
+        }
 
     }
     [TestFixture]
