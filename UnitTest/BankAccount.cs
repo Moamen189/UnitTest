@@ -24,14 +24,44 @@ namespace UnitTest
             }
             Balance += amount;
         }
-        public void WithDraw(int amount)
+        public bool WithDraw(int amount)
         {
-           
+            if(Balance >= amount)
+            {
+                Balance -= amount;
+                return true;
+            }
+            return false;
         }
 
 
     }
+    [TestFixture]
+    public class DataDrivenTests
+    {
+        private BankAccount ba;
 
+        [SetUp]
+        public void SetUp()
+        {
+            ba = new BankAccount(100);
+        }
+        [Test]
+        [TestCase(50 , true , 50)]
+        [TestCase(100 , true , 0)]
+        [TestCase(1000 , false , 100)]
+        public void testWithMultipleWithDrawalSenarios(int amountToWithDrawal , bool ShouldSucceed , int expectedBalance)
+        {
+            var result = ba.WithDraw(amountToWithDrawal);
+            // Warn.If(!result, "Failed For Some Reason");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(ShouldSucceed));
+                Assert.That(expectedBalance, Is.EqualTo(ba.Balance));
+            });
+        }
+    }
     [TestFixture]
     public class BankAccountTests
     {
