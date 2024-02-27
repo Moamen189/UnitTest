@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using JetBrains.dotMemoryUnit;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UnitTest
 {
-    public static class Solve
+    public  class Solve
     {
         public static Tuple<double, double> Quadratic(double a, double b, double c)
         {
@@ -34,6 +35,16 @@ namespace UnitTest
         {
             var result = Solve.Quadratic(1, 10, 16);
             Assert.That(result.Item1, Is.EqualTo(-2));
+        }
+
+        [Test]
+
+        public void Test()
+        {
+            dotMemory.Check(memory =>
+            {
+                Assert.That(memory.GetObjects(where => where.Type.Is<Solve>()).ObjectsCount , Is.EqualTo(0));
+            });
         }
     }
 }
