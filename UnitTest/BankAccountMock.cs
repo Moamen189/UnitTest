@@ -10,7 +10,6 @@ namespace UnitTest
 {
     public interface ILog
     {
-        // true if writing succeeded, false otherwise
         bool Write(string msg);
     }
 
