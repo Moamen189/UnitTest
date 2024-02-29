@@ -5,7 +5,7 @@
         private int startingBalance;
         private int minBalance;
 
-        public BankAccountWithOverdraft(int startingBalance, int minBalance)
+        public BankAccountWithOverdraft(int startingBalance, int minBalance) : base(startingBalance)
         {
             this.startingBalance = startingBalance;
             this.minBalance = minBalance;

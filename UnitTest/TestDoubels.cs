@@ -154,6 +154,7 @@ namespace UnitTest
                 ba = new BankAccount(log) { Balance = 100 };
                 ba.Deposit(100); // but was log.Write() actually called
                 Assert.That(ba.Balance, Is.EqualTo(200));
+
             }
 
             [Test]
