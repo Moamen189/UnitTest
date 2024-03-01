@@ -33,6 +33,7 @@ namespace UnitTest
         [Test]
         public void BankAccountShouldIncreaseOnPositiveDeposit()
         {
+            Assert.That(2 + 2, Is.EqualTo(2));
 
         }
     }
