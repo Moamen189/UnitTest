@@ -95,13 +95,6 @@ namespace UnitTest
         {
             var mock = new Mock<IFoo>();
 
-            //mock.Setup(foo => foo.DoSomething("ping")).Returns(true);
-            //mock.Setup(foo => foo.DoSomething("pong")).Returns(true);
-
-            //mock.Setup(foo => foo.DoSomething(It.IsIn("ping", "pong")))
-            //    .Returns(true);
-
-            // same as above, but lazy evaluated
             mock.Setup(foo => foo.DoSomething(
               It.IsIn("ping", "pong"))).Returns(() => true);
 
@@ -167,8 +160,6 @@ namespace UnitTest
             // this only works with this particular 'bar'
             // uses referential equality, not structural
             var someOtherBar = new Bar() { Name = "abc" };
-            //Assert.IsTrue(mock.Object.Submit(ref bar));
-            //Assert.IsFalse(mock.Object.Submit(ref someOtherBar));
         }
 
         [Test]
